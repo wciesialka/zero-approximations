@@ -9,7 +9,8 @@ A quick Python script I made to test Zero Approximations.
 `Python3`
 ### Installing
 
-Simply download it using `git clone` or `wget` if on a terminal or downloading with a browser.
+Simply download it using `git clone https://github.com/wciesialka/zero-approximations.git` into a subdirectory or `wget https://raw.githubusercontent.com/wciesialka/zero-approximations/master/zero-approximation.py` if on a terminal.
+Download as a zip on browser or navigate to the [raw page](https://raw.githubusercontent.com/wciesialka/zero-approximations/master/zero-approximation.py) and save the file using `CTRL+S`
 ### Running
 
 Run using `python zero-approximation.py` or double-clicking if using a GUI.
