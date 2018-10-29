@@ -14,18 +14,27 @@
 
 from math import *
 
+SMALL_FLOAT = 2e-10
+
+# Prep for Eval
+# Replaces carats with Python's ** to allow for powers.
 def prep_for_eval(func):
 	func = func.replace("^","**")
 	return func
 
+# Get Derivative
+# Takes in the regular function and returns the limit of the function as h approaches 0 according to the definition of a derivative.
 def get_derivative(func):
-	h = (2**-32)
-	deriv = "((" + func.replace("x","(x+h)") +  ") - (" + func.replace("x","(x-h)") + "))/(2*h)"
-	return deriv.replace("h",str(h))
+	h = SMALL_FLOAT # h should be infinitesmal, so we use a very small float instead.
+	return "((" + func.replace("x","(x+" + str(h) + ")") + ") - (" + func.replace("x","(x-" + str(h) + ")") + "))/(2*" + str(h) + ")" # a fun replace and concat problem. ugly to look at but makes sense
 
+# Get approximation
+# Returns the numerical approximation of x given f(x) and f'(x)
 def get_approximation(f_x,d_x,x):
 	return x - ((eval(f_x))/(eval(d_x)))
 
+# Get approximations
+# Prints all approximations of x from x sub 2 to x sub n
 def get_approximations(f_x,d_x,initial,maxi,precision=4):
 	x = initial
 	for n in range(1,maxi):
