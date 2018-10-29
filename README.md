@@ -23,4 +23,4 @@ Precision is how many decimal points you recieve in your approximations. It does
 William Ciesialka
 
 ## License
-This project is licensed under the Apache 2.0 license - see [LICENSE.md](LICENSE.md) for details.
+This project is licensed under the Apache 2.0 license - see [LICENSE](LICENSE) for details.
