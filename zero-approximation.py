@@ -14,7 +14,7 @@
 
 from math import *
 
-SMALL_FLOAT = 1e-15
+SMALL_FLOAT = 1e-10
 
 # Prep for Eval
 # Replaces carats with Python's ** to allow for powers.
@@ -25,7 +25,7 @@ def prep_for_eval(func):
 # Get Derivative
 # Takes in the regular function and returns the limit of the function as h approaches 0 according to the definition of a derivative.
 def get_derivative(func):
-	h = "(" + str(SMALL_FLOAT) + ")" # h should be infinitesmal, so we use a very small float instead.
+	h = "(h)" # h should be infinitesmal, so we use a very small float instead.
 	return "((" + func.replace("x","(x+" + h + ")") + ") - (" + func.replace("x","(x-" + h + ")") + "))/(2*" + h + ")" # a fun replace and concat problem. ugly to look at but makes sense
 
 # Get approximation
