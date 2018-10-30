@@ -14,7 +14,7 @@
 
 from math import *
 
-SMALL_FLOAT = 1e-10
+SMALL_FLOAT = 2**-32
 
 # Prep for Eval
 # Replaces carats with Python's ** to allow for powers.
@@ -25,7 +25,7 @@ def prep_for_eval(func):
 # Get Derivative
 # Takes in the regular function and returns the limit of the function as h approaches 0 according to the definition of a derivative.
 def get_derivative(func):
-	h = "(h)" # h should be infinitesmal, so we use a very small float instead.
+	h = "(" + str(SMALL_FLOAT) + ")" # h should be infinitesmal, so we use a very small float instead.
 	return "((" + func.replace("x","(x+" + h + ")") + ") - (" + func.replace("x","(x-" + h + ")") + "))/(2*" + h + ")" # a fun replace and concat problem. ugly to look at but makes sense
 
 # Get approximation
@@ -39,8 +39,8 @@ def get_approximations(f_x,d_x,initial,maxi,precision=4):
 	x = initial
 	for n in range(1,maxi):
 		x = get_approximation(f_x,d_x,x)
-		print("x_" + str(n+1) + "=\t",round(x,precision))
-	print("Given f(x) = ",f_x,", an initial approximation of ",initial,", and ",maxi," approximations, f(x) = 0 when x = ",round(x,precision))
+		print("x_" + str(n+1) + " =\t",round(x,precision))
+	print("Given f(x) =",f_x,", an initial approximation of",initial,", and",maxi,"approximations, f(x) = 0 when x =",round(x,precision))
 	
 
 def main():
